@@ -1,0 +1,153 @@
+@import "compass";
+@import url(https://fonts.googleapis.com/css?family=Abel);
+// font-family
+$baseFontFamily :"游ゴシック", YuGothic, "メイリオ",Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+// colors
+$baseColor: #FAFEFF;
+$subColor: #49AB9D;
+$keyColor: #2DCF42;
+$fontColor: #4c4c4c;
+
+
+/* Base
+------------------------------------------------------------*/
+html{ font-size: 62.5%; }
+
+body{
+  color: $fontColor;
+  font-size: 1.4rem;
+  font-family:$baseFontFamily;
+  line-height:1.6;
+  letter-spacing: 0.1em; 
+  background-color: $baseColor;
+}
+
+/* Header
+------------------------------------------------------------*/
+header{
+    overflow: hidden;
+    width: 100%;/* トリミングしたい枠の幅 */
+    height:250px;
+    position: relative;
+    margin-bottom: 40px;
+    
+    img{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: 100%;
+    }
+}    
+
+
+/* Main
+------------------------------------------------------------*/
+main{
+    text-align:center;
+    
+    h2{
+        font-size: 1.6rem;
+        color: $fontColor;
+        margin-bottom: 40px;
+    }
+    
+    .container{
+        @include display-flex;
+        justify-content: space-between;
+        @include flex-direction(column);
+        margin: 0 20px 40px 20px;
+    }
+}
+
+.like-box
+{
+    width: 100%;
+    margin: 20px 0;                     // 上下にマージン
+    padding: 0;
+    border: solid 1px #000000;
+    background-color: $baseColor;
+    
+    @include flex(1);
+    @include border-radius(4px);
+    @include box-sizing(border-box);
+    
+    h3{
+        color: $keyColor;
+        font-size: 1.6rem;
+        font-weight: bold;
+        padding: 10px;
+        margin-bottom:10px;
+        border-bottom: solid 1px #000000;
+    }
+    
+    p{
+        font-size: 1.6rem;
+        margin:0 10px 10px;
+    }
+}
+
+/* Footer
+------------------------------------------------------------*/
+footer{
+    background-color: $subColor;
+    padding: 40px 0 40px 0;
+    text-align: center;
+    color: #FFF;
+    
+    p{
+        margin-bottom:20px;
+    }
+    
+    a{
+        text-decoration: none;
+    }
+    
+    .button-work{
+        margin: auto;
+        text-align: center;
+        padding: 10px 0;
+        width: 90%;
+        display: block;
+        color: #FFF;
+        font-weight: bold;
+        background-color: #4c4c4c;
+        font-size: 1.2rem;
+        @include border-radius(4px);
+        font-family: 'Abel', sans-serif;
+        text-transform: uppercase;
+    }
+    
+}
+
+// desktop
+@media (min-width: 769px) {
+
+  // header
+    header{
+        height:500px;
+    
+        img{
+            height:500px;
+        }
+    }
+
+  // main
+    main{
+        .container{
+            @include flex-direction(row);     // スキルボックスを横に並べる
+            justify-content: space-between;
+        }
+        .like-box{
+            margin: 0 10px; 
+        }
+    }
+  // footer
+    footer{
+        .button-work{
+        width: 300px;
+        }
+    }
+}
